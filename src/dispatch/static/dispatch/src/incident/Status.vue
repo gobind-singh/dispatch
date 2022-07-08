@@ -4,7 +4,7 @@
       <organization-banner />
       <v-app-bar app flat class="v-bar--underline" color="background0">
         <router-link :to="{ name: 'IncidentOverview' }" style="text-decoration: none">
-          <span class="button font-weight-bold">B S - I R M</span>
+          <span class="button font-weight-bold">B S - I R M D</span>
         </router-link>
         <v-spacer />
         <v-btn small color="primary" :to="{ name: 'report' }"> Report Incident </v-btn>
