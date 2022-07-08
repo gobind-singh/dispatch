@@ -5,7 +5,7 @@
       <organization-banner />
       <v-app-bar app flat class="v-bar--underline" color="background0">
         <router-link :to="{ name: 'IncidentOverview' }" style="text-decoration: none">
-          <span class="button font-weight-bold">D I S P A T C H</span>
+          <span class="button font-weight-bold">B S - I R M</span>
         </router-link>
       </v-app-bar>
       <v-card flat>

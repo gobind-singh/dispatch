@@ -34,7 +34,7 @@
     <mj-section full-width="full-width" background-color="#FAFAFA" padding-bottom="0">
       <mj-column>
         <mj-text color="#0F0F0F" font-weight="bold" text-transform="uppercase" font-size="16px" letter-spacing="1px" padding-top="30px">
-          B r o w s e r S t a c k - I R M
+          B S - I R M
         </mj-text>
       </mj-column>
     </mj-section>

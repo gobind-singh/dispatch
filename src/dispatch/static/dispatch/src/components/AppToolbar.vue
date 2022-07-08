@@ -3,7 +3,7 @@
     <organization-create-edit-dialog />
     <!--<v-app-bar-nav-icon @click="handleDrawerToggle" />-->
     <router-link :to="{ name: 'IncidentOverview' }" style="text-decoration: none">
-      <span class="button font-weight-bold">D I S P A T C H</span>
+      <span class="button font-weight-bold">B r o w s e r S t a c k - I R M</span>
     </router-link>
     <v-spacer />
     <v-text-field
