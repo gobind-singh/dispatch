@@ -9,7 +9,7 @@ LABEL org.opencontainers.image.vendor="Netflix, Inc."
 LABEL org.opencontainers.image.authors="oss@netflix.com"
 
 # Get and set up Node for front-end asset building
-RUN apt-get update && apt-get install -y --no-install-recommends && apt-get install gcc \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     # Needed for fetching stuff
     ca-certificates \
     wget \
@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends && apt-get inst
 
 RUN set -x \
     && wget --quiet -O - https://deb.nodesource.com/setup_12.x | bash - \
-    && apt-get install -y nodejs
+    && apt-get install -y nodejs && apt-get install -y gcc
 
 ARG SOURCE_COMMIT
 ENV DISPATCH_BUILD=${SOURCE_COMMIT:-unknown}
@@ -72,6 +72,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     wget gnupg \
     && rm -rf /var/lib/apt/lists/*
 
+RUN apt-get update && apt-get install -y gcc && apt-get install -y build-essential
+RUN echo $PATH
+
 RUN set -x \
     && echo "deb http://apt.postgresql.org/pub/repos/apt buster-pgdg main" > /etc/apt/sources.list.d/pgdg.list \
     && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
@@ -81,9 +84,9 @@ RUN set -x \
 
 COPY --from=sdist /dist/*.whl /tmp/dist/
 RUN set -x \
-    && buildDeps="" \
+    # && buildDeps="" \
     && apt-get update \
-    && apt-get install -y --no-install-recommends $buildDeps \
+    # && apt-get install -y --no-install-recommends $buildDeps \
     # remove internal index when internal plugins are seperated
     && pip install -U /tmp/dist/*.whl \
     && apt-get purge -y --auto-remove $buildDeps \
