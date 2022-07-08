@@ -9,7 +9,7 @@ LABEL org.opencontainers.image.vendor="Netflix, Inc."
 LABEL org.opencontainers.image.authors="oss@netflix.com"
 
 # Get and set up Node for front-end asset building
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get install -y --no-install-recommends && apt-get install gcc \
     # Needed for fetching stuff
     ca-certificates \
     wget \
@@ -26,7 +26,6 @@ LABEL org.opencontainers.image.licenses="https://github.com/netflix/dispatch/blo
 
 ARG DISPATCH_LIGHT_BUILD
 ENV DISPATCH_LIGHT_BUILD=${DISPATCH_LIGHT_BUILD}
-RUN apt-get -y install gcc
 RUN echo "DISPATCH_LIGHT_BUILD=${DISPATCH_LIGHT_BUILD}"
 
 # Allow build time variables via --build-arg
