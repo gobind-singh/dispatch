@@ -26,7 +26,7 @@ LABEL org.opencontainers.image.licenses="https://github.com/netflix/dispatch/blo
 
 ARG DISPATCH_LIGHT_BUILD
 ENV DISPATCH_LIGHT_BUILD=${DISPATCH_LIGHT_BUILD}
-
+RUN apt-get -y install gcc
 RUN echo "DISPATCH_LIGHT_BUILD=${DISPATCH_LIGHT_BUILD}"
 
 # Allow build time variables via --build-arg
